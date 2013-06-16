@@ -1,0 +1,30 @@
+﻿生成启动时间为 2013/6/16 15:41:00。
+     1>项目“D:\MyProjects\FromGitCafe\CppPrimerPlusCodes\CppPrimerPlusCodes\CppPrimerPlusCodes.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\CppPrimerPlusCodes.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\Tools\Programing_tools_and_data\VS2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Chapter6.cpp
+         Chapter6.cpp
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         d:\Tools\Programing_tools_and_data\VS2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\MyProjects\FromGitCafe\CppPrimerPlusCodes\Debug\CppPrimerPlusCodes.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CppPrimerPlusCodes.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\MyProjects\FromGitCafe\CppPrimerPlusCodes\Debug\CppPrimerPlusCodes.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\MyProjects\FromGitCafe\CppPrimerPlusCodes\Debug\CppPrimerPlusCodes.lib" /MACHINE:X86 Debug\CppPrimerPlusCodes.exe.embed.manifest.res
+         Debug\Chapter4.obj
+         Debug\Chapter6.obj
+         Debug\CodesEntry.obj
+         Debug\CppPrimerPlusCodes.obj
+         Debug\Chapter5.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\CppPrimerPlusCodes.exe.embed.manifest" /manifest Debug\CppPrimerPlusCodes.exe.intermediate.manifest
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         CppPrimerPlusCodes.vcxproj -> D:\MyProjects\FromGitCafe\CppPrimerPlusCodes\Debug\CppPrimerPlusCodes.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\CppPrimerPlusCodes.unsuccessfulbuild”。
+         正在对“Debug\CppPrimerPlusCodes.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\MyProjects\FromGitCafe\CppPrimerPlusCodes\CppPrimerPlusCodes\CppPrimerPlusCodes.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.85
