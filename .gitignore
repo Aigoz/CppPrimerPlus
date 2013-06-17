@@ -1,0 +1,8 @@
+# ignore build results
+[Dd]ebug/
+
+# ignore cache?
+ipch/
+*.opensdf
+*.sdf
+*.cachefile
