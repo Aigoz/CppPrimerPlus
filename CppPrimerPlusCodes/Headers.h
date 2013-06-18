@@ -8,5 +8,6 @@
 #include <cstring>
 #include <fstream>
 #include <cstdlib>
+#include <cctype>
 
 #endif	/*__HEADERS_H__*/

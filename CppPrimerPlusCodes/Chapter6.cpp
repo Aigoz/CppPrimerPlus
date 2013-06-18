@@ -85,3 +85,52 @@ void codes06_15()
 
 	outFile.close();	// remember close
 }
+
+void exercise06_01()
+{
+	// use cctype
+	char ch;
+
+	while (cin.get(ch) && '@' != ch)
+	{
+		if (!isdigit(ch))
+		{
+			if (islower(ch))
+				ch = toupper(ch);
+			else if (isupper(ch))
+				ch = tolower(ch);
+			cout << ch;
+		}
+	}
+}
+
+void exercise06_02()
+{
+	double myDouble[10];
+	double mySum = 0.0;
+	int gtAverageCount = 0;
+	int averageDouble = 0.0;
+	int myCount = 0;
+
+	int i = 0;
+	for (i = 0; i < 10; i++)
+	{
+		if (cin.get(myDouble[i]) && isdigit(myDouble[i]))
+		{
+			mySum += myDouble[i];
+			myCount++;
+		}
+		else
+			break;
+	}
+
+	averageDouble = mySum/myCount;
+	while(--myCount)
+	{
+		if (myDouble[myCount] > averageDouble)
+		{
+			gtAverageCount++;
+		}
+	}
+	cout << "average = " << mySum/myCount << "; gtAve = " << gtAverageCount << ".\n";
+}

@@ -8,5 +8,13 @@ void codes06_14();
 void codes06_15();	//	File I/O
 
 void exercise06_01();
+void exercise06_02();
+void exercise06_03();
+void exercise06_04();
+void exercise06_05();
+void exercise06_06();
+void exercise06_07();
+void exercise06_08();
+void exercise06_09();
 
 #endif
