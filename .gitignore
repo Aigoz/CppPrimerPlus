@@ -6,3 +6,6 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+
+# user files?
+*.suo

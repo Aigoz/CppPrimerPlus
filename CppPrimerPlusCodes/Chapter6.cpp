@@ -109,13 +109,13 @@ void exercise06_02()
 	double myDouble[10];
 	double mySum = 0.0;
 	int gtAverageCount = 0;
-	int averageDouble = 0.0;
+	double averageDouble = 0;
 	int myCount = 0;
 
 	int i = 0;
 	for (i = 0; i < 10; i++)
 	{
-		if (cin.get(myDouble[i]) && isdigit(myDouble[i]))
+		if (cin >> myDouble[i])
 		{
 			mySum += myDouble[i];
 			myCount++;
@@ -132,5 +132,210 @@ void exercise06_02()
 			gtAverageCount++;
 		}
 	}
-	cout << "average = " << mySum/myCount << "; gtAve = " << gtAverageCount << ".\n";
+	cout << "average = " << averageDouble << "; gtAve = " << gtAverageCount << ".\n";
+}
+
+void showMenu_e0603()
+{
+	cout << "Please enter one of the following choices, I will tell you my favourite: \n"
+		"c) carnivore		p) pianist\n"
+		"t) tree			g) game\n";
+}
+
+void exercise06_03()
+{
+	char theChoice;
+
+	showMenu_e0603();
+	cin >> theChoice;
+	while (theChoice != 'c' && theChoice != 'p' && theChoice != 't' && theChoice != 'g')
+	{
+		cout << "Please enter a character of c,p,t,g: ";
+		cin >> theChoice;
+	}
+
+	switch (theChoice)
+	{
+	case 'c':	cout << "Maybe tiger? However, tiger is carnivore at least.\n";
+		break;
+	case 'p':	cout << "Beethoven. Pathetique.\n";
+		break;
+	case 't':	cout << "A maple is a tree.\n";
+		break;
+	case 'g':	cout << "WOW, CS, Dota, War3. Lots.\n";
+		break;
+	default:	cout << "How did you get here? I must missed something.\n";
+		break;
+	}
+}
+
+struct bop {
+	char fullname[STR_SIZE];
+	char title[STR_SIZE];
+	char bopname[STR_SIZE];
+	int preference;	//	0 = fullname, 1 = title, 2 = bopname; 能用常量代替硬编码。
+};
+
+void showMenu_e0604()
+{
+	cout << "Benevolent Order of Programmers Report\n"
+		"a. display by name		b. display by title\n"
+		"c. display by bopname	d. display by preference\n"
+		"q. quit\n";
+}
+
+void displayByPreference_e0604(bop theBop)
+{
+	switch (theBop.preference)
+	{
+	case 0:	cout << theBop.fullname << endl; break;
+	case 1: cout << theBop.title << endl; break;
+	case 2: cout << theBop.bopname << endl; break;
+	default: cout << "There is something wrong about the preference of "
+				 << theBop.fullname << ".\n"; break;
+	}
+}
+
+void exercise06_04()
+{
+	char theChoise;
+	bop bops[5] = {
+		{"Wimp Macho", "CEO", "mAc", 0},
+		{"Raki Rhodes", "Junior Programmer", "Ros", 1},
+		{"Celia Laiter", "Senior Programmer", "MIPS", 2},
+		{"Hoppy Hipman", "Analyst Trainee", "HOP", 1},
+		{"Pat Hand", "CTO", "LOOPY", 2}
+	};
+	int i = 0;
+
+	showMenu_e0604();				// consider spaces, tabs, enters.
+	while (cin >> theChoise)		// cin>>theChoise is better than cin.get(theChoise)
+	{
+		if (theChoise != 'a' && theChoise != 'b' && 
+			theChoise != 'c' && theChoise != 'd' && theChoise != 'q')
+		{
+			cout << "Be nice please. Enter a or b or c or d or q.\n";
+			continue;
+		}
+
+		if ('q' == theChoise)
+		{
+			cout << "Bye!\n";
+			break;
+		}
+
+		switch(theChoise)
+		{
+		case 'a':
+			{
+				for (i = 0; i < 5; i++)
+					cout << bops[i].fullname << endl;
+				break;
+			}
+		case 'b':
+			{
+				for (i = 0; i < 5; i++)
+					cout << bops[i].title << endl;
+				break;
+			}
+		case 'c':
+			{
+				for (i = 0; i < 5; i++)
+					cout << bops[i].bopname << endl;
+				break;
+			}
+		case 'd':
+			{
+				for (i = 0; i < 5; i++)
+					displayByPreference_e0604(bops[i]);
+				break;
+			}
+		default:	cout << "Get out!\n"; break;
+		}
+	}
+}
+
+void exercise06_05()
+{
+	double income;
+	double tax;
+
+	cout << "enter an income: ";
+	while (cin >> income && income >= 0)
+	{
+		if (income > 35000)
+			tax = (income - 35000) * 0.2 + 20000 * 0.15 + 10000 * 0.1;
+		else if (income > 15000)
+			tax = (income - 15000) * 0.15 + 10000 * 0.1;
+		else if (income > 5000)
+			tax = (income - 5000) * 0.1;
+		else
+			tax = 0;
+
+		cout << "tax: " << tax << " tvarps.\n";
+		cout << "enter another income: ";
+	}
+}
+
+struct patron {
+	string nameStr;
+	double money;
+};
+
+void exercise06_06()
+{
+	int i = 0;
+	int patronNumber;
+	bool isGrandPatronsNone = true;
+	bool isPatronsNone = true;
+
+	cout << "Enter the number of patrons: ";
+	while (!(cin >> patronNumber))
+	{	//	Enter patron number, and make sure it is a positive int.
+		cin.clear();
+		while (cin.get() != '\n')
+			continue;
+		cout << "Please enter a positive integer: ";
+	}
+
+	//new and init patrons
+	patron* patrons = new patron [patronNumber];
+	for (i = 0; i < patronNumber; i++)
+	{
+		// clear the buffer
+		while (cin.get() != '\n')
+			continue;
+
+		cout << "Patron #" << i+1 << "\n" 
+			"Name: ";
+		getline(cin, patrons[i].nameStr);
+		cout << "Money: ";
+		cin >> patrons[i].money;
+	}
+
+	//show grand patrons
+	cout << "\nGrand Patrons:\n";
+	for (i = 0; i < patronNumber; i++)
+	{
+		if (patrons[i].money > 10000)
+		{
+			isGrandPatronsNone = false;
+			cout << patrons[i].nameStr << "\t\t" << patrons[i].money << endl;
+		}
+		else
+			isPatronsNone = false;
+	}
+	if (isGrandPatronsNone)
+		cout << "None\n";
+
+	//show normal patrons
+	cout << "Patrons:\n";
+	if (isPatronsNone)
+		cout << "None\n";
+	else 
+		for (i = 0; i < patronNumber; i++)
+			if (patrons[i].money < 10000)
+				cout << patrons[i].nameStr << "\t\t" << patrons[i].money << endl;
+
+	// end
 }

@@ -2,6 +2,8 @@
 #define __CHAPTER6_H__
 
 const int MAX = 5;
+// exercise06_04
+const int STR_SIZE = 50;
 
 void codes06_02();
 void codes06_14();
