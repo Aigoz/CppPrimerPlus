@@ -439,15 +439,26 @@ void exercise06_09()
 	int patronNumber;
 	bool isGrandPatronsNone = true;
 	bool isPatronsNone = true;
-	ifstream patronsFile;
+	ifstream patronsInFile;
 
-	cout << "Enter the number of patrons: ";
-	while (!(cin >> patronNumber))
+	// open patrons.txt
+	patronsInFile.open("patrons.txt");
+	if (!patronsInFile.is_open())
+	{
+		cout << "Could not open patrons.txt, please check this file!\n"
+			"Terminating!\n";
+		exit(EXIT_FAILURE);
+	}
+
+	while (!(patronsInFile >> patronNumber))
 	{	//	Enter patron number, and make sure it is a positive int.
-		cin.clear();
-		while (cin.get() != '\n')
-			continue;
-		cout << "Please enter a positive integer: ";
+// 		cin.clear();
+// 		while (cin.get() != '\n')
+// 			continue;
+		cout << "Please check first line of patrons.txt.\n"
+			"It should be a positive integer.\n"
+			"Terminating\n";
+		exit(EXIT_FAILURE);
 	}
 
 	//new and init patrons
@@ -455,14 +466,14 @@ void exercise06_09()
 	for (i = 0; i < patronNumber; i++)
 	{
 		// clear the buffer
-		while (cin.get() != '\n')
+		while (patronsInFile.get() != '\n')
 			continue;
 
-		cout << "Patron #" << i+1 << "\n" 
-			"Name: ";
-		getline(cin, patrons[i].nameStr);
-		cout << "Money: ";
-		cin >> patrons[i].money;
+// 		cout << "Patron #" << i+1 << "\n" 
+// 			"Name: ";
+		getline(patronsInFile, patrons[i].nameStr);
+/*		cout << "Money: ";*/
+		patronsInFile >> patrons[i].money;
 	}
 
 	//show grand patrons
@@ -491,4 +502,5 @@ void exercise06_09()
 
 	// end, then delete patrons.
 	delete [] patrons;
+	patronsInFile.close();
 }

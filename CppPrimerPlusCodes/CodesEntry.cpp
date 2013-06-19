@@ -22,7 +22,7 @@ int letItGo5(char* chapterStr)
 
 int letItGo6(char* chapterStr)
 {
-	exercise06_08();
+	exercise06_09();
 
 	return 0;
 }
