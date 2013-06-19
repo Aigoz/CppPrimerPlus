@@ -337,5 +337,158 @@ void exercise06_06()
 			if (patrons[i].money < 10000)
 				cout << patrons[i].nameStr << "\t\t" << patrons[i].money << endl;
 
-	// end
+	// end, then delete patrons.
+	delete [] patrons;
+}
+
+void exercise06_07()
+{
+	char word[40];
+	int countVowel = 0;
+	int countConsonant = 0;
+	int countOthers = 0;
+
+	cout << "Enter words (q to quit):\n";
+	while (cin >> word && strcmp(word, "q"))
+	{
+		if (!isalpha(word[0]))
+			countOthers++;
+		else if (word[0] == 'a' || word[0] == 'A' ||word[0] == 'e' || 
+				word[0] == 'E' || word[0] == 'i' || word[0] == 'I' || 
+				word[0] == 'u' || word[0] == 'U' || word[0] == 'o' || 
+				word[0] == 'O')
+			countVowel++;
+		else
+			countConsonant++;
+	}
+
+	cout << countVowel << " words beginning with vowels\n"
+		<< countConsonant << " words beginning with consonants\n"
+		<< countOthers << " others\n";
+}
+
+void exercise06_08()
+{
+	ifstream inputFile;
+	char ch;
+	char useDefaultFile;
+	string filename;
+	int wordNumber = 0;
+
+	cout << "Do you want to use the default file(Aigoz0608.txt)?\n"
+		"Enter y/n : ";
+	
+	// Yes or No?
+	while (cin.get(useDefaultFile))
+	{
+		// clear cin buffer
+		while (cin.get() != '\n');
+		
+		if ('y' == useDefaultFile)
+		{
+			filename = "Aigoz0608.txt";
+			break;
+		}
+		else if ('n' == useDefaultFile)
+		{
+			cout << "Then enter your filename: ";
+			getline(cin, filename);
+			break;
+		}
+		else
+			cout << "you need to enter 'y' or 'n' to let me know which file is needed.\n"
+			"Enter y/n(y=yes, n=no) :";
+	}
+
+	// clear cin buffer
+	while (cin.get() != '\n');
+
+	inputFile.open(filename);
+	if (!inputFile.is_open())
+	{
+		cout << "Could not open the file \"" << filename << "\"" <<endl;
+		cout << "Please check this file. Terminating.\n";
+		exit(EXIT_FAILURE);		// <cstdlib>
+	}
+
+	while (inputFile.get(ch) && inputFile.good())
+	{
+		if ('\n' == ch)
+			continue;
+		wordNumber++;
+	}
+
+	if (inputFile.eof())
+		cout << "End of file reched.\n";
+	else if (inputFile.fail())
+		cout << "Data mismatch" << endl;
+	else 
+		cout << "Unknow Issue.\n";
+
+	if (wordNumber == 0)
+		cout << "There is no word number." << endl;
+	else 
+		cout << filename << " file has " << wordNumber << " words\n";
+
+	inputFile.close();		// remember close.
+}
+
+void exercise06_09()
+{
+	int i = 0;
+	int patronNumber;
+	bool isGrandPatronsNone = true;
+	bool isPatronsNone = true;
+	ifstream patronsFile;
+
+	cout << "Enter the number of patrons: ";
+	while (!(cin >> patronNumber))
+	{	//	Enter patron number, and make sure it is a positive int.
+		cin.clear();
+		while (cin.get() != '\n')
+			continue;
+		cout << "Please enter a positive integer: ";
+	}
+
+	//new and init patrons
+	patron* patrons = new patron [patronNumber];
+	for (i = 0; i < patronNumber; i++)
+	{
+		// clear the buffer
+		while (cin.get() != '\n')
+			continue;
+
+		cout << "Patron #" << i+1 << "\n" 
+			"Name: ";
+		getline(cin, patrons[i].nameStr);
+		cout << "Money: ";
+		cin >> patrons[i].money;
+	}
+
+	//show grand patrons
+	cout << "\nGrand Patrons:\n";
+	for (i = 0; i < patronNumber; i++)
+	{
+		if (patrons[i].money > 10000)
+		{
+			isGrandPatronsNone = false;
+			cout << patrons[i].nameStr << "\t\t" << patrons[i].money << endl;
+		}
+		else
+			isPatronsNone = false;
+	}
+	if (isGrandPatronsNone)
+		cout << "None\n";
+
+	//show normal patrons
+	cout << "Patrons:\n";
+	if (isPatronsNone)
+		cout << "None\n";
+	else 
+		for (i = 0; i < patronNumber; i++)
+			if (patrons[i].money < 10000)
+				cout << patrons[i].nameStr << "\t\t" << patrons[i].money << endl;
+
+	// end, then delete patrons.
+	delete [] patrons;
 }

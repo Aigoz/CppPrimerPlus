@@ -9,5 +9,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <cctype>
+#include <cstdlib>
 
 #endif	/*__HEADERS_H__*/
