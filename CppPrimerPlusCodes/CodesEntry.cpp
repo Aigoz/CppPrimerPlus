@@ -26,3 +26,10 @@ int letItGo6(char* chapterStr)
 
 	return 0;
 }
+
+int letItGo7(char* chapterStr)
+{
+
+
+	return 0;
+}

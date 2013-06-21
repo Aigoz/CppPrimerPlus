@@ -6,6 +6,7 @@ int letItGo4(char* chapterStr);
 int letItGo5(char* chapterStr);
 int letItGo5(char* chapterStr);
 int letItGo6(char* chapterStr);
+int letItGo7(char* chapterStr);
 
 void showMeTheMoney();
 

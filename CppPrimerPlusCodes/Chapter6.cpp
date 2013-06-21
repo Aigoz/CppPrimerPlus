@@ -451,10 +451,7 @@ void exercise06_09()
 	}
 
 	while (!(patronsInFile >> patronNumber))
-	{	//	Enter patron number, and make sure it is a positive int.
-// 		cin.clear();
-// 		while (cin.get() != '\n')
-// 			continue;
+	{
 		cout << "Please check first line of patrons.txt.\n"
 			"It should be a positive integer.\n"
 			"Terminating\n";
@@ -465,14 +462,11 @@ void exercise06_09()
 	patron* patrons = new patron [patronNumber];
 	for (i = 0; i < patronNumber; i++)
 	{
-		// clear the buffer
+		// clear the Enter\n
 		while (patronsInFile.get() != '\n')
 			continue;
 
-// 		cout << "Patron #" << i+1 << "\n" 
-// 			"Name: ";
 		getline(patronsInFile, patrons[i].nameStr);
-/*		cout << "Money: ";*/
 		patronsInFile >> patrons[i].money;
 	}
 
