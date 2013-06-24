@@ -9,3 +9,9 @@ ipch/
 
 # user files?
 *.suo
+*.sln
+
+# project file
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user

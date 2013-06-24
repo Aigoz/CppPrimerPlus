@@ -2,12 +2,11 @@
 #define __CODESENTRY_H__
 
 //Ö÷µ÷ÓÃ
-int letItGo4(char* chapterStr);
-int letItGo5(char* chapterStr);
-int letItGo5(char* chapterStr);
-int letItGo6(char* chapterStr);
-int letItGo7(char* chapterStr);
-
-void showMeTheMoney();
+int letItGo0(); // for the number gt 17.
+int letItGo4();
+int letItGo5();
+int letItGo5();
+int letItGo6();
+int letItGo7();
 
 #endif
