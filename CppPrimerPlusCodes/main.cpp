@@ -82,7 +82,7 @@ functionPtr chapterEntryPtr(int theChapter)
     };
 
     if (theChapter > 0 && theChapter <= 17)
-        return *codesEntries[theChapter];
+        return codesEntries[theChapter];
     else
-        return *codesEntries[0];    // Entry 0 for the error message.
+        return codesEntries[0];    // Entry 0 for the error message.
 }
