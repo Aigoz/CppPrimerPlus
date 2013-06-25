@@ -1,4 +1,4 @@
-#include "Chapter5.h"
+ï»¿#include "Chapter5.h"
 #include "Headers.h"
 
 using namespace std;
@@ -28,7 +28,7 @@ void Exercise05_03()
 	double investmentDaphne = 100.0, investmentCleo = 100.0;
 	int years = 0;
 	//  
-	//		µÚÒ»ÖÖÀí½âÊÇ±¾Ï¢Ê²Ã´Ê±ºò³¬¹ı
+	//		ç¬¬ä¸€ç§ç†è§£æ˜¯æœ¬æ¯ä»€ä¹ˆæ—¶å€™è¶…è¿‡
 	// 	while (investmentDaphne >= investmentCleo)
 	// 	{
 	// 		investmentDaphne += 10.0;
@@ -36,7 +36,7 @@ void Exercise05_03()
 	// 		years++;
 	// 	}
 
-	//		µÚ¶şÖÖÀí½âÊÇÀûÏ¢Ê²Ã´Ê±ºò³¬¹ı
+	//		ç¬¬äºŒç§ç†è§£æ˜¯åˆ©æ¯ä»€ä¹ˆæ—¶å€™è¶…è¿‡
 	while (investmentCleo*0.05 <= 10)
 	{
 		investmentCleo += investmentCleo * 0.05;
@@ -53,7 +53,7 @@ void Exercise05_04()
 
 struct Car 
 {
-	string manufacturer;		//manufacture		ÖÆÔì£¬Éú²ú
+	string manufacturer;		//manufacture		åˆ¶é€ ï¼Œç”Ÿäº§
 	int yearOfManufacturing;
 };
 

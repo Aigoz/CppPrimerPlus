@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 Main Entry
 Creation Date:  2013-5-23 18:31
 Big Update:     2013-6-14 9:42      1. Add Chapter4 Exercises From ALU PC.
@@ -19,7 +19,7 @@ const int CHAPTER_NUM = 17;
 
 void showChapterMenu();
 int chooseChapter();
-//function pointer   ÓÃµ½º¯ÊýÖ¸Õë
+//function pointer   ç”¨åˆ°å‡½æ•°æŒ‡é’ˆ
 // <C++ Primer> page 237&238 
 typedef int (*functionPtr)();                 // use typedef is much more clearly
 functionPtr chapterEntryPtr(int theChapter);    

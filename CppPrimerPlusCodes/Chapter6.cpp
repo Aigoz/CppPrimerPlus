@@ -1,4 +1,4 @@
-#include "Chapter6.h"
+ï»¿#include "Chapter6.h"
 #include "Headers.h"
 
 using namespace std;
@@ -173,7 +173,7 @@ struct bop {
 	char fullname[STR_SIZE];
 	char title[STR_SIZE];
 	char bopname[STR_SIZE];
-	int preference;	//	0 = fullname, 1 = title, 2 = bopname; ÄÜÓÃ³£Á¿´úÌæÓ²±àÂë¡£
+	int preference;	//	0 = fullname, 1 = title, 2 = bopname; èƒ½ç”¨å¸¸é‡ä»£æ›¿ç¡¬ç¼–ç ã€‚
 };
 
 void showMenu_e0604()

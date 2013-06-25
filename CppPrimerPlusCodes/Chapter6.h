@@ -1,4 +1,4 @@
-#ifndef __CHAPTER6_H__
+﻿#ifndef __CHAPTER6_H__
 #define __CHAPTER6_H__
 
 const int MAX = 5;

@@ -1,4 +1,4 @@
-#pragma once	
+﻿#pragma once	
 // #pragma once <=> #ifndef #define  #endif	?
 #ifndef __CHAPTER5_H__
 #define __CHAPTER5_H__

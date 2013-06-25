@@ -1,7 +1,7 @@
-#ifndef __CODESENTRY_H__
+ï»¿#ifndef __CODESENTRY_H__
 #define __CODESENTRY_H__
 
-//Ö÷µ÷ÓÃ
+//ä¸»è°ƒç”¨
 int letItGo0(); // for the number gt 17.
 int letItGo4();
 int letItGo5();

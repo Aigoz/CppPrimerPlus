@@ -1,4 +1,4 @@
-//Public header file for CppPrimerPlusCodes
+﻿//Public header file for CppPrimerPlusCodes
 #ifndef __HEADERS_H__
 #define __HEADERS_H__
 

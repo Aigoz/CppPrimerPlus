@@ -1,4 +1,4 @@
-#ifndef __CHAPTER4_H__
+﻿#ifndef __CHAPTER4_H__
 #define __CHAPTER4_H__
 
 const short NameSize = 40;
