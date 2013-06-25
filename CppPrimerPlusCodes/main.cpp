@@ -59,11 +59,11 @@ void showChapterMenu()
 int chooseChapter()
 {
     int theChapter;
-    cout << "Your Chapter: ";
+    cout << "\nYour Chapter: ";
 
     while (!(cin >> theChapter))
     {
-        cout << "Please enter the chapter id: ";
+        cout << "\nPlease enter the chapter id: ";
         cin.clear();
         while (cin.get() != '\n');
     }

@@ -28,4 +28,7 @@ void exercise07_07();
 void exercise07_08();
 void exercise07_09();
 
+//draw thought
+void functionPointer();
+
 #endif	/*__CHAPTER7_H__*/

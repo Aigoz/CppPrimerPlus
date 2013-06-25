@@ -36,7 +36,7 @@ int letItGo6()
 
 int letItGo7()
 {
-	codes07_16();
+    exercise07_06();
 
 	return 0;
 }
