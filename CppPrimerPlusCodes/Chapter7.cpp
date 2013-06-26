@@ -19,8 +19,10 @@ Chapter7::~Chapter7(void)
 **************************************/
 //codes07_16
 void subDivide(char ar[], int low, int high, int level);
+
 //e1
 double harmonicMean(double a, double b);
+
 //e3
 struct box 
 {
@@ -32,12 +34,32 @@ struct box
 };
 void showBoxMenbers(box a);
 void setBoxVolume(box* a);
+
 //e5
 double factorialOf(int number);
+
 //e6
 int Fill_array(double a[], int length);
 void Show_arrary(const double a[], int length);
 void Reverse_array(double a[], int length);
+
+//e8
+const int SLEN = 30;
+struct student {
+    char fullname[SLEN];
+    char hobby[SLEN];
+    int ooplevel;
+};
+bool isBlankLine(char* str);
+int getinfo(student pa[], int n);
+void display1(student st);
+void display2(student* ps);
+void display3(const student pa[], int n);
+
+//e9
+double myAdd(double x, double y);
+double calculate(double x, double y, double (* fp)(double x, double y));
+
 
 
 /*************************************
@@ -230,8 +252,140 @@ void exercise07_07()
 
 void exercise07_08()
 {
+    using namespace std;
 
+    cout << "Enter class size: ";
+    int class_size;
+    cin >> class_size;
+    while (cin.get() != '\n');
+
+    student * ptr_stu = new student[class_size];
+    int entered = getinfo(ptr_stu,class_size);
+    for (int i = 0; i < entered; i++)
+    {
+        display1(ptr_stu[i]);
+        display2(&ptr_stu[i]);
+    }
+    display3(ptr_stu, entered);
+
+    delete [] ptr_stu;
+    cout << "Done!\n";
 }
+
+//blank line return true, otherwise return flase.
+bool isBlankLine(char* str)
+{
+    while (*str)    // if str has no character, it will skip this and return true.
+    {
+        if (*str != ' ' && *str != '\n')
+            return false;
+        str++;
+    }
+
+    return true;
+}
+
+int getinfo(student pa[], int n)
+{
+    using namespace std;
+    cout << "Now fill the students! \n";
+    char tempStr[SLEN];
+    int count = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter student[" << i << "]'s name: ";
+        if (cin.getline(tempStr, SLEN) && !isBlankLine(tempStr))
+        {
+            strcpy_s(pa[i].fullname, tempStr);
+
+            cout << "Enter student[" << i << "]'s hobby: ";
+            cin >> tempStr;
+            strcpy_s(pa[i].hobby, tempStr);
+
+            cout << "Enter student[" << i << "]'s ooplevel(int): ";
+            while (!(cin >> pa[i].ooplevel))
+            {
+                cout << "Enter an integer: ";
+                cin.clear();
+                while (cin.get() != '\n');
+            }
+            while (cin.get() != '\n');
+        }
+        else
+            break;
+
+        count++;
+    }
+
+    return count;
+}
+
+void display1(student st)
+{
+    using namespace std;
+    cout << "Display a student using display1.\n";
+    
+    cout << "Full name: " << st.fullname <<
+        "\nHobby: " << st.hobby <<
+        "\nooplevel: " << st.ooplevel << endl;
+}
+
+void display2(student* ps)
+{
+    using namespace std;
+    cout << "Display a student using display2.\n";
+
+    cout << "Full name: " << ps->fullname <<
+        "\nHobby: " << ps->hobby <<
+        "\nooplevel: " << ps->ooplevel << endl;
+}       
+
+void display3(const student pa[], int n)
+{
+    using namespace std;
+    cout << "Display all students using display3.\n";
+
+    if (0 == n)
+    {
+        cout << "There is no student." <<endl;
+        return;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Student[" << i << "]'s info.\n"
+            << "\tFull name: " << pa[i].fullname
+            << "\n\tHobby: " << pa[i].hobby
+            << "\n\tooplevel: " << pa[i].ooplevel << endl;
+    }
+}
+
+
+void exercise07_09()
+{// 关于第九题的拓展，可以见main.cpp
+    using namespace std;
+    double a, b, sum;
+
+    cout << "Enter two double number, will quit when not double number was entered: ";
+    while (cin >> a >> b)
+    {
+        sum = calculate(a, b, myAdd);
+        cout << "Sum = " << sum <<endl;
+        cout << "Two doule number: ";
+    }
+}
+
+double myAdd(double x, double y)
+{
+    return x + y;
+}
+
+double calculate(double x, double y, double (* fp)(double x, double y))
+{
+    return (* fp)(x,y);
+}
+
 
 /************************************************************************/
 /* function pointer                                                     */
