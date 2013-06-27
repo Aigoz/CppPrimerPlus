@@ -15,14 +15,12 @@ Big Update:     2013-6-14 9:42      1. Add Chapter4 Exercises From ALU PC.
 
 using namespace std;
 
-const int CHAPTER_NUM = 17;
-
 void showChapterMenu();
 int chooseChapter();
 //function pointer   用到函数指针
 // <C++ Primer> page 237&238 
 typedef int (*functionPtr)();                 // use typedef is much more clearly
-functionPtr chapterEntryPtr(int theChapter);    
+functionPtr getChapterEntryPtr(int theChapter);    
 //int (* chapterEntryPtr(int theChapter))();  //  NOTICE!! the place of function name
 
 int main() {
@@ -34,7 +32,7 @@ int main() {
     showChapterMenu();
     while (theChapter = chooseChapter())
     {
-        codesEntryPtr = chapterEntryPtr(theChapter);
+        codesEntryPtr = getChapterEntryPtr(theChapter);
         if (codesEntryPtr)
         {
             (*codesEntryPtr)();
@@ -73,7 +71,7 @@ int chooseChapter()
     return theChapter;
 }
 
-functionPtr chapterEntryPtr(int theChapter)
+functionPtr getChapterEntryPtr(int theChapter)
 {
     int (*codesEntries[CHAPTER_NUM + 1])() = {
         letItGo0, NULL, NULL, NULL, letItGo4, letItGo5,

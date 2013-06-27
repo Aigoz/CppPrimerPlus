@@ -2,6 +2,8 @@
 #ifndef __HEADERS_H__
 #define __HEADERS_H__
 
+const int CHAPTER_NUM = 17;
+
 #include <iostream>
 #include <cmath>
 #include <string>

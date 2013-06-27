@@ -4,7 +4,7 @@
 #define __CHAPTER5_H__
 
 void Exercise05_01();
-//void Exercise05_02();
+void Exercise05_02();
 void Exercise05_03();
 void Exercise05_04();
 void Exercise05_05();

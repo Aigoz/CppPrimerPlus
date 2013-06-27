@@ -23,6 +23,11 @@ void Exercise05_01()
 	cout << "sum integer: " << tmpInt << endl;
 }
 
+void Exercise05_02()
+{
+
+}
+
 void Exercise05_03()
 {
 	double investmentDaphne = 100.0, investmentCleo = 100.0;
@@ -47,6 +52,11 @@ void Exercise05_03()
 }
 
 void Exercise05_04()
+{
+
+}
+
+void Exercise05_05()
 {
 
 }
