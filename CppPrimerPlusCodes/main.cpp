@@ -75,7 +75,8 @@ functionPtr getChapterEntryPtr(int theChapter)
 {
     int (*codesEntries[CHAPTER_NUM + 1])() = {
         letItGo0, NULL, NULL, NULL, letItGo4, letItGo5,
-        letItGo6, letItGo7, NULL, NULL, NULL,
+        letItGo6, letItGo7, letItGo8
+        , NULL, NULL,
         NULL, NULL, NULL, NULL, NULL,
         NULL, NULL
     };

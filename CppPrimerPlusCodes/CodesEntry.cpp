@@ -4,6 +4,7 @@
 #include "Chapter5.h"
 #include "Chapter6.h"
 #include "Chapter7.h"
+#include "Chapter8.h"
 
 using namespace std;
 
@@ -11,13 +12,15 @@ void showChapter4CodesMenu();
 void showChapter5CodesMenu();
 void showChapter6CodesMenu();
 void showChapter7CodesMenu();
+void showChapter8CodesMenu();
 
 int chooseFunction();
 
 typedef void (*cFuntionsPtr)();
 cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId);
 
-//global function pointer
+/*  GLOBAL VARIABLE */
+//  function pointer
 cFuntionsPtr functionPtr;
 int theFunctionId;
 
@@ -99,6 +102,24 @@ int letItGo7()
 	return 0;
 }
 
+int letItGo8()
+{
+    showChapter8CodesMenu();
+    while (theFunctionId = chooseFunction())
+    {
+        functionPtr = getCFunctionEntryPtr(8, theFunctionId);
+        if (functionPtr)
+        {
+            (*functionPtr)();
+        }
+        else
+            cout << "There is no codes at id " << theFunctionId <<". Repick one\n";
+    }
+    return 0;
+}
+
+//******************************************************************//
+
 void showChapter4CodesMenu()
 {
     cout << "THis is codes of Chapter 4\n"
@@ -145,6 +166,16 @@ void showChapter7CodesMenu()
         "9. Exercise 09         10.Codes    16\n"
         "11.Draw - functionPointer()\n"
         "0. Exit\n";
+}
+
+void showChapter8CodesMenu()
+{
+    cout << "THis is codes of Chapter 8\n"
+        "Enter the id number to pick up the function to run.\n"
+        "1. Exercise 01         2. Exercise 02\n"
+        "3. Exercise 03         4. Exercise 04\n"
+        "5. Exercise 05         6. Exercise 06\n"
+        "7. Exercise 07         0. Exit\n";
 }
 
 int chooseFunction()
@@ -223,6 +254,16 @@ cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
         funcEntries[9] = exercise07_09;
         funcEntries[10]= codes07_16;
         funcEntries[11]= functionPointer;
+    }
+    else if (8 == theChapter)
+    {
+        funcEntries[1] = exercise08_01;
+        funcEntries[2] = exercise08_02;
+        funcEntries[3] = exercise08_03;
+        funcEntries[4] = exercise08_04;
+        funcEntries[5] = exercise08_05;
+        funcEntries[6] = exercise08_06;
+        funcEntries[7] = exercise08_07;
     }
     else
         return NULL;
