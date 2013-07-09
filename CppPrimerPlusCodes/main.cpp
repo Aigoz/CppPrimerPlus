@@ -81,7 +81,7 @@ functionPtr getChapterEntryPtr(int theChapter)
         NULL, NULL
     };
 
-    if (theChapter > 0 && theChapter <= 17)
+    if (theChapter > 0 && theChapter <= CHAPTER_NUM)
         return codesEntries[theChapter];
     else
         return codesEntries[0];    // Entry 0 for the error message.

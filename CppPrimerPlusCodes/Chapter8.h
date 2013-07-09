@@ -9,6 +9,9 @@
 #ifndef __CHAPTER8_H__
 #define __CHAPTER8_H__
 
+// e0805
+const int ARRAY_SIZE = 5;
+
 void exercise08_01();
 void exercise08_02();
 void exercise08_03();

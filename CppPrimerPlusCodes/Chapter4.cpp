@@ -75,13 +75,6 @@ void Exercise04_04()
 	cout << "Here's the information in a single string: " << fullName << endl;
 }
 
-struct CandyBar {
-	//string	candyBrand;			// an error will be reported on vc6.0 when snack was initialzing using "string" type.
-	char	candyBrand[40];
-	int		candyCalorie;
-	double	candyWeight;
-};
-
 void Exercise04_05()
 {
 	CandyBar snack = 
