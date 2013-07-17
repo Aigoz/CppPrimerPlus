@@ -77,9 +77,9 @@ struct debts
 };
 
 template <typename T>
-T sumArray (const T arr[], const int n);
+void sumArray (const T arr[], const int n);
 template <typename T>
-T sumArray (const T * arr[], const int n);
+void sumArray (T * arr[], const int n);
 
 
 /*************************************************
@@ -320,7 +320,9 @@ void exercise08_07()
     for (int i = 0; i < 3; i++)
         pd[i] = &mr_E[i].amount;
 
-    sumArray()
+    sumArray(things, 6);
+
+    sumArray(pd, 3);
 }
 
 template <typename T>
@@ -337,7 +339,7 @@ void sumArray (const T arr[], const int n)
 }
 
 template <typename T>
-void sumArray (const T * arr[], const int n)
+void sumArray (T * arr[], const int n)
 {
     using namespace std;
     T sum = *arr[0];
