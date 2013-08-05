@@ -5,6 +5,7 @@
 #include "Chapter6.h"
 #include "Chapter7.h"
 #include "Chapter8.h"
+#include "Chapter9.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ void showChapter5CodesMenu();
 void showChapter6CodesMenu();
 void showChapter7CodesMenu();
 void showChapter8CodesMenu();
+void showChapter9CodesMenu();
 
 int chooseFunction();
 
@@ -118,6 +120,22 @@ int letItGo8()
     return 0;
 }
 
+int letItGo9()
+{
+    showChapter9CodesMenu();
+    while (theFunctionId = chooseFunction())
+    {
+        functionPtr = getCFunctionEntryPtr(9, theFunctionId);
+        if (functionPtr)
+        {
+            (*functionPtr)();
+        }
+        else
+            cout << "There is no codes at id " << theFunctionId <<". Repick one\n";
+    }
+    return 0;
+}
+
 //******************************************************************//
 
 void showChapter4CodesMenu()
@@ -178,6 +196,15 @@ void showChapter8CodesMenu()
         "7. Exercise 07         0. Exit\n";
 }
 
+void showChapter9CodesMenu()
+{
+    cout << "This is codes of Chapter 9\n"
+        "Enter the id number to pick up the function to run.\n"
+        "1. Exercise 01         2. Exercise 02\n"
+        "3. Exercise 03         4. Exercise 04\n"
+        "0. Exit\n";
+}
+
 int chooseFunction()
 {
     int theFunction;
@@ -202,6 +229,9 @@ cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
         return NULL;
 
     cFuntionsPtr funcEntries[MAX_CODES_NUM + 1] = {NULL};
+    //  设置成静态变量会不会更好（只是初始化一次）？
+    //  这样初始化后直接挑选函数，是不是不初始化直接挑选更好？
+
     if (4 == theChapter)
     {
         funcEntries[1] = Exercise04_01;
@@ -264,6 +294,13 @@ cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
         funcEntries[5] = exercise08_05;
         funcEntries[6] = exercise08_06;
         funcEntries[7] = exercise08_07;
+    }
+    else if (9 == theChapter)
+    {
+        funcEntries[1] = exercise09_01;
+        funcEntries[2] = exercise09_02;
+        funcEntries[3] = exercise09_03;
+        funcEntries[4] = exercise09_04;
     }
     else
         return NULL;

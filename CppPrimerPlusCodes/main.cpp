@@ -46,12 +46,12 @@ int main() {
 
 void showChapterMenu()
 {
-    cout << "Choose one chapter:"
+    cout << "Choose one chapter:\n"
             "1. Chapter One         2. Chapter Two\n"
             "3. Chapter Three       4. Chapter Four\n"
             "5. Chapter Five        6. Chapter Six\n"
             "7. Chapter Seven       8. Chapter Eight\n"
-            "0. Exit\n";
+            "9. Chapter Nine        0. Exit\n";
 }
 
 int chooseChapter()
@@ -73,10 +73,13 @@ int chooseChapter()
 
 functionPtr getChapterEntryPtr(int theChapter)
 {
+    //  当初只是为了想用到函数指针，但是这个方式不太好，详见在 CodesEntry.cpp 中
+    //  cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
+    //  中的注释
     int (*codesEntries[CHAPTER_NUM + 1])() = {
         letItGo0, NULL, NULL, NULL, letItGo4, letItGo5,
-        letItGo6, letItGo7, letItGo8
-        , NULL, NULL,
+        letItGo6, letItGo7, letItGo8, 
+        letItGo9, NULL,
         NULL, NULL, NULL, NULL, NULL,
         NULL, NULL
     };

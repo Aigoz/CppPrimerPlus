@@ -10,5 +10,6 @@ int letItGo5();
 int letItGo6();
 int letItGo7();
 int letItGo8();
+int letItGo9();
 
 #endif  /*__CODESENTRY_H__*/
