@@ -51,7 +51,8 @@ void showChapterMenu()
             "3. Chapter Three       4. Chapter Four\n"
             "5. Chapter Five        6. Chapter Six\n"
             "7. Chapter Seven       8. Chapter Eight\n"
-            "9. Chapter Nine        0. Exit\n";
+            "9. Chapter Nine        10.Chapter Ten\n"
+            "0. Exit\n";
 }
 
 int chooseChapter()
@@ -79,7 +80,7 @@ functionPtr getChapterEntryPtr(int theChapter)
     int (*codesEntries[CHAPTER_NUM + 1])() = {
         letItGo0, NULL, NULL, NULL, letItGo4, letItGo5,
         letItGo6, letItGo7, letItGo8, 
-        letItGo9, NULL,
+        letItGo9, letItGo10,
         NULL, NULL, NULL, NULL, NULL,
         NULL, NULL
     };

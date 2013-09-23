@@ -6,6 +6,7 @@
 #include "Chapter7.h"
 #include "Chapter8.h"
 #include "Chapter9.h"
+#include "Chapter10.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ void showChapter6CodesMenu();
 void showChapter7CodesMenu();
 void showChapter8CodesMenu();
 void showChapter9CodesMenu();
+void showChapter10CodesMenu();
 
 int chooseFunction();
 
@@ -136,6 +138,22 @@ int letItGo9()
     return 0;
 }
 
+int letItGo10()
+{
+    showChapter10CodesMenu();
+    while (theFunctionId = chooseFunction())
+    {
+        functionPtr = getCFunctionEntryPtr(10, theFunctionId);
+        if (functionPtr)
+        {
+            (*functionPtr)();
+        }
+        else
+            cout << "There is no codes at id " << theFunctionId <<". Repick one\n";
+    }
+    return 0;
+}
+
 //******************************************************************//
 
 void showChapter4CodesMenu()
@@ -202,6 +220,18 @@ void showChapter9CodesMenu()
         "Enter the id number to pick up the function to run.\n"
         "1. Exercise 01         2. Exercise 02\n"
         "3. Exercise 03         4. Exercise 04\n"
+        "0. Exit\n";
+}
+
+void showChapter10CodesMenu()
+{
+    cout << "This is codes of Chapter 10\n"
+        "Enter the id number to pick up the function to run.\n"
+        "1. Exercise 01         2. Exercise 02\n"
+        "3. Exercise 03         4. Exercise 04\n"
+        "5. Exercise 05         6. Exercise 06\n"
+        "7. Exercise 07         8. Exercise 08\n"
+        "9. Code 03\n"
         "0. Exit\n";
 }
 
@@ -301,6 +331,18 @@ cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
         funcEntries[2] = exercise09_02;
         funcEntries[3] = exercise09_03;
         funcEntries[4] = exercise09_04;
+    }
+    else if (10 == theChapter)
+    {
+        funcEntries[1] = exercise10_01;
+        funcEntries[2] = exercise10_02;
+        funcEntries[3] = exercise10_03;
+        funcEntries[4] = exercise10_04;
+        funcEntries[5] = exercise10_05;
+        funcEntries[6] = exercise10_06;
+        funcEntries[7] = exercise10_07;
+        funcEntries[8] = exercise10_08;
+        funcEntries[9] = code10_03;
     }
     else
         return NULL;

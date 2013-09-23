@@ -25,7 +25,7 @@ struct chaff {
 //char buffer[200];   //method 1
 
 /*************************************
-*	Private method of Chapter8.cpp	 *
+*      	    Private method           *
 **************************************/
 
 
