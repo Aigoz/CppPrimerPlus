@@ -4,16 +4,17 @@
 //  Constructors
 Stock::Stock()
 {
-    std::cout << "Default Constructor Called\n";
-    std::strncpy(company, "No Name", 7);
+//     std::cout << "Default Constructor Called\n";
+    std::strncpy(company, "No Name", COMPANY_NAME_LENGTH);
+    company[COMPANY_NAME_LENGTH] = '\0';
     shares = 0;
     share_val = 0.0;
     total_val = 0.0;
 }
 
-Stock::Stock(const * co, int n /* = 0 */, double pr /* = 0.0 */)
+Stock::Stock(const char * co, int n /* = 0 */, double pr /* = 0.0 */)
 {
-    std::cout << "Not Default Constructor Called\n";
+//     std::cout << "Constructor using " << co << " called.\n";
 
     // same with acquire(). We can just use acquire(co, n, pr); instead.
     std::strncpy(company, co, COMPANY_NAME_LENGTH);
@@ -34,8 +35,8 @@ Stock::Stock(const * co, int n /* = 0 */, double pr /* = 0.0 */)
 // Destructor
 Stock::~Stock()
 {
-    std::cout << "Display this line to see when destructor was called.\n"
-        "Bye, " << company << "!\n";
+//     std::cout << "Display this line to see when destructor was called.\n"
+//         "Bye, " << company << "!\n";
 }
 
 void Stock::acquire(const char * co, int n, double pr)
@@ -102,11 +103,19 @@ void Stock::update(double price)
     set_tot();
 }
 
-void Stock::show()
+void Stock::show() const
 {
     using namespace std;
     cout << "Company: " << company
         << "\n  Shares: " << shares 
-        << "\n Share Price: ￥" << share_val
-        << "\n Total Worth: ￥" << total_val << endl;
+        << "\n  Share Price: ￥" << share_val
+        << "\n  Total Worth: ￥" << total_val << endl;
+}
+
+const Stock & Stock::topStock(const Stock & s) const 
+{
+    if (s.total_val > total_val)
+        return s;
+    else
+        return *this;
 }

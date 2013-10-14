@@ -231,7 +231,7 @@ void showChapter10CodesMenu()
         "3. Exercise 03         4. Exercise 04\n"
         "5. Exercise 05         6. Exercise 06\n"
         "7. Exercise 07         8. Exercise 08\n"
-        "9. Code 03\n"
+        "9. Code 03             10.Code 09\n"
         "0. Exit\n";
 }
 
@@ -343,6 +343,7 @@ cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
         funcEntries[7] = exercise10_07;
         funcEntries[8] = exercise10_08;
         funcEntries[9] = code10_03;
+        funcEntries[10]= code10_09;
     }
     else
         return NULL;
