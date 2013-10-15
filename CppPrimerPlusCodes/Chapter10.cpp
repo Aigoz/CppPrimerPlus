@@ -139,6 +139,8 @@ void exercise10_08()
     ListSimple<int> myList(10);
     myList.addItem(22);
     myList.addItemAtIndex(33,1);
+    myList.addItemAtIndex(99,0);
+    myList.addItemAtIndex(88,999);
     myList.addItem(22);
     myList.addItem(44);
     std::cout << "Now we have " << myList.getListCount() << " items.\n";

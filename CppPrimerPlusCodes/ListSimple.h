@@ -31,10 +31,10 @@ public:
     int getListCount() const;
 
     bool addItem(const T & nItem);
-    bool addItemAtIndex(const T & nItem, const int theIndex);
+    bool addItemAtIndex(const T & nItem, int theIndex);
     bool removeItem();
     bool removeItem(const T & nItem);
-    bool removeItemAtIndex(const T & nItem, const int theIndex);
+    bool removeItemAtIndex(const T & nItem, int theIndex);
     void emptyList();
 
     void visit(void (*pf)(T & theItem)) const;
@@ -105,10 +105,12 @@ bool ListSimple<T>::addItem(const T & nItem)
 }
 
 template <typename T>
-bool ListSimple<T>::addItemAtIndex(const T & nItem, const int theIndex)
+bool ListSimple<T>::addItemAtIndex(const T & nItem, int theIndex)
 {
-    if (theIndex > listCount && theIndex < 0)
+    if (theIndex < 0)
         return false;
+    else if (theIndex > listCount)
+        theIndex = listCount;
     listItem<T> * currentListItem_ptr = new listItem<T>;
     if (currentListItem_ptr)
     {
@@ -201,7 +203,7 @@ bool ListSimple<T>::removeItem(const T & nItem)
 }
 
 template <typename T>
-bool ListSimple<T>::removeItemAtIndex(const T & nItem, const int theIndex)
+bool ListSimple<T>::removeItemAtIndex(const T & nItem, int theIndex)
 {
 
 }
