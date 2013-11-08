@@ -97,7 +97,10 @@ bool ListSimple<T>::addItem(const T & nItem)
     else
         return false;
 
-    lastItem->nextItem = currentListItem_ptr;
+    if (firstItem == nullptr)
+        firstItem = currentListItem_ptr;
+    else
+        lastItem->nextItem = currentListItem_ptr;
     lastItem = currentListItem_ptr;
     ++listCount;
 
