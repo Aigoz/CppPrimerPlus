@@ -20,6 +20,12 @@ private:
     listItem<T> * firstItem;
     int listCount;
     bool _removeItem(listItem<T> * theListItem);
+//For future update, and avoid unexpected memory error!!
+    //When we need use those two method, define them, and move them to public methods.
+    //复制构造函数
+    ListSimple(const ListSimple & ls): listCount(0) {}
+    //默认赋值函数
+    ListSimple & operator = (const ListSimple & ls) {return *this;}
 
 public:
     ListSimple();
