@@ -19,7 +19,7 @@ public:
 protected:
 
 private:
-    enum {MAX = 10};
+    enum {MAX = 10};    // const int MAX
     Item * pitems;
     int size;
     int top;
