@@ -82,7 +82,7 @@ functionPtr getChapterEntryPtr(int theChapter)
         letItGo0, NULL, NULL, NULL, letItGo4, letItGo5,
         letItGo6, letItGo7, letItGo8, 
         letItGo9, letItGo10,
-        letItGo11, NULL, NULL, NULL, NULL,
+        letItGo11, letItGo12, NULL, NULL, NULL,
         NULL, NULL
     };
 
