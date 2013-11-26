@@ -9,6 +9,7 @@
 #include "Chapter10.h"
 #include "Chapter11.h"
 #include "Chapter12.h"
+#include "Chapter13.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ void showChapter9CodesMenu();
 void showChapter10CodesMenu();
 void showChapter11CodesMenu();
 void showChapter12CodesMenu();
+void showChapter13CodesMenu();
 
 int chooseFunction();
 
@@ -190,6 +192,22 @@ int letItGo12()
     return 0;
 }
 
+int letItGo13()
+{
+    showChapter13CodesMenu();
+    while (theFunctionId = chooseFunction())
+    {
+        functionPtr = getCFunctionEntryPtr(13, theFunctionId);
+        if (functionPtr)
+        {
+            (*functionPtr)();
+        }
+        else
+            cout << "There is no codes at id " << theFunctionId <<". Repick one\n";
+    }
+    return 0;
+}
+
 //******************************************************************//
 
 void showChapter4CodesMenu()
@@ -289,6 +307,16 @@ void showChapter12CodesMenu()
         "1. Exercise 01         2. Exercise 02\n"
         "3. Exercise 03         4. Exercise 04\n"
         "5. Exercise 05         6. Exercise 06\n"
+        "0. Exit\n";
+}
+
+void showChapter13CodesMenu()
+{
+    cout << "This is codes of Chapter 13\n"
+        "Enter the id number to pick up the function to run.\n"
+        "1. Exercise 01         2. Exercise 02\n"
+        "3. Exercise 03         4. Exercise 04\n"
+        "5. Code13_09\n"
         "0. Exit\n";
 }
 
@@ -420,6 +448,14 @@ cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
         funcEntries[4] = exercise12_04;
         funcEntries[5] = exercise12_05;
         funcEntries[6] = exercise12_06;
+    }
+    else if (13 == theChapter)
+    {
+        funcEntries[1] = exercise13_01;
+        funcEntries[2] = exercise13_02;
+        funcEntries[3] = exercise13_03;
+        funcEntries[4] = exercise13_04;
+        funcEntries[5] = code13_09;
     }
     else
         return NULL;

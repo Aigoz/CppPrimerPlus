@@ -53,6 +53,7 @@ void showChapterMenu()
             "7. Chapter Seven       8. Chapter Eight\n"
             "9. Chapter Nine        10.Chapter Ten\n"
             "11.Chapter Eleven      12.Chapter Twelve\n"
+            "13.Chapter Thirteen    \n"
             "0. Exit\n";
 }
 
@@ -82,7 +83,7 @@ functionPtr getChapterEntryPtr(int theChapter)
         letItGo0, NULL, NULL, NULL, letItGo4, letItGo5,
         letItGo6, letItGo7, letItGo8, 
         letItGo9, letItGo10,
-        letItGo11, letItGo12, NULL, NULL, NULL,
+        letItGo11, letItGo12, letItGo13, NULL, NULL,
         NULL, NULL
     };
 
