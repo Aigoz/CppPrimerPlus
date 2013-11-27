@@ -316,7 +316,7 @@ void showChapter13CodesMenu()
         "Enter the id number to pick up the function to run.\n"
         "1. Exercise 01         2. Exercise 02\n"
         "3. Exercise 03         4. Exercise 04\n"
-        "5. Code13_09\n"
+        "5. Code13_09           6. MyTest 01\n"
         "0. Exit\n";
 }
 
@@ -456,6 +456,7 @@ cFuntionsPtr getCFunctionEntryPtr(int theChapter, int functionsId)
         funcEntries[3] = exercise13_03;
         funcEntries[4] = exercise13_04;
         funcEntries[5] = code13_09;
+        funcEntries[6] = myTest01;
     }
     else
         return NULL;

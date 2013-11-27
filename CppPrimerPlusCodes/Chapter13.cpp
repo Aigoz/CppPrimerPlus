@@ -87,6 +87,21 @@ void exercise13_04()
 
 }
 
+void myTest01()
+{
+    using namespace std;
+    Cd c1( "Beatles", "Capitol", 14, 35.5);
+    Classic c2 = Classic("Piano Sonata in B flat, Fantasia in C", 
+        "Alfred Brendel", "Philips", 2, 57.17);
+    Cd * pcd = &c2;
+
+    pcd->operator=(c1);
+    pcd->operator=(c2);
+    pcd = &c1;
+    pcd->operator=(c1);
+    pcd->operator=(c2);
+}
+
 
 /*
  *          Private Methods Definition

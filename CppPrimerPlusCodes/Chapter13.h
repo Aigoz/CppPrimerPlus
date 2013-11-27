@@ -11,4 +11,6 @@ void exercise13_02();
 void exercise13_03();
 void exercise13_04();
 
+void myTest01();
+
 #endif

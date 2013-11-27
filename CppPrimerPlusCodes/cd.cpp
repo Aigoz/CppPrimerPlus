@@ -41,6 +41,12 @@ void Cd::report() const
         << "\nplaytime: " << playtime << endl;
 }
 
+Cd & Cd::operator= (const Cd & cd)
+{
+    cout << "This is CD operator." << endl;
+    return *this;
+}
+
 /*
  *  Class Classic Methods
  */
@@ -73,3 +79,15 @@ void Classic::report() const
         << majorWorks << endl;
     Cd::report();
 }    
+
+Classic & Classic::operator= (const Classic & c)
+{
+    cout << "This is Classic operator\n";
+    return *this;
+}
+
+Classic & Classic::operator= (const Cd & cd)
+{
+    cout << "This is Classic cd operator\n";
+    return *this;
+}

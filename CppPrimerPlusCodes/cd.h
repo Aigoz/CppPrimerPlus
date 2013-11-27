@@ -12,7 +12,7 @@ public:
     virtual ~Cd();
 
     virtual void report() const;
-//    Cd & operator = (const Cd & cd);
+    virtual Cd & operator = (const Cd & cd);
 
 protected:
 private:
@@ -34,7 +34,8 @@ public:
     virtual ~Classic();
 
     virtual void report() const;
-//    Classic & operator = (const Classic & c);
+    virtual Classic & operator = (const Cd & cd);
+    virtual Classic & operator = (const Classic & c);
 
 protected:
 private:
