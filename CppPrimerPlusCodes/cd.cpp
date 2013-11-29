@@ -10,27 +10,38 @@ using std::endl;
  */
 Cd::Cd(const char * perf, const char * l, int sel, double pt)
 {
-    std::strncpy(performers, perf, 49);
-    performers[49] = '\0';
-    std::strncpy(label, l, 19);
-    label[19] = '\0';
+    performers = new char [std::strlen(perf) + 1];
+    strcpy(performers, perf);
+    label = new char [strlen(l) + 1];
+    strcpy(label, l);
     selections = sel;
     playtime = pt;
 }
 
-// Cd::Cd(const Cd & cd)
+Cd::Cd(const Cd & cd)
+{
+    performers = new char [strlen(cd.performers) + 1];
+    strcpy(performers, cd.performers);
+    label = new char [strlen(cd.label) + 1];
+    strcpy(label, cd.label);
+    selections = cd.selections;
+    playtime = cd.playtime;
+}
 
 Cd::Cd()
 {
-    performers[0] = '\0';
-    label[0] = '\0';
+    performers = new char [strlen("performers") + 1];
+    strcpy(performers, "performers");
+    label = new char [strlen("label") + 1];
+    strcpy(label, "label");
     selections = 0;
     playtime = 0.0;
 }
 
 Cd::~Cd()
 {
-
+    delete [] label;
+    delete [] performers;
 }
 
 void Cd::report() const
@@ -43,7 +54,18 @@ void Cd::report() const
 
 Cd & Cd::operator= (const Cd & cd)
 {
-    cout << "This is CD operator." << endl;
+//     cout << "This is CD operator." << endl;
+//     return *this;
+    if (&cd == this)
+        return *this;
+    delete [] performers;
+    performers = new char [strlen(cd.performers) + 1];
+    strcpy(performers, cd.performers);
+    delete [] label;
+    label = new char [strlen(cd.label) + 1];
+    strcpy(label, cd.label);
+    selections = cd.selections;
+    playtime = cd.playtime;
     return *this;
 }
 
@@ -53,24 +75,31 @@ Cd & Cd::operator= (const Cd & cd)
 Classic::Classic(const char * mw, const char * perf, const char * l, 
     int sel, double pt) : Cd(perf, l, sel, pt)
 {
-    std::strncpy(majorWorks, mw, 49);
-    majorWorks[49] = '\0';
+    majorWorks = new char [strlen(mw) + 1];
+    strcpy(majorWorks, mw);
 }
 
-Classic::Classic(const char * mv, const Cd & cd) : Cd(cd)
+Classic::Classic(const char * mw, const Cd & cd) : Cd(cd)
 {
-    std::strncpy(majorWorks, mv, 49);
-    majorWorks[49] = '\0';
+    majorWorks = new char [strlen(mw) + 1];
+    strcpy(majorWorks, mw);
+}
+
+Classic::Classic(const Classic & c) : Cd(c) // :Cd(c) is very importent
+{
+    majorWorks = new char [strlen(c.majorWorks) + 1];
+    strcpy(majorWorks, c.majorWorks);
 }
 
 Classic::Classic() : Cd()
 {
-    majorWorks[0] = '\0';
+    majorWorks = new char [strlen("The Major Works") + 1];
+    strcpy(majorWorks, "The Major Works");
 }
 
 Classic::~Classic()
 {
-
+    delete [] majorWorks;
 }
 
 void Classic::report() const
@@ -82,12 +111,19 @@ void Classic::report() const
 
 Classic & Classic::operator= (const Classic & c)
 {
-    cout << "This is Classic operator\n";
+//     cout << "This is Classic operator\n";
+//     return *this;
+    if (&c == this)
+        return *this;
+    Cd::operator=(c);
+    delete [] majorWorks;
+    majorWorks = new char [strlen(c.majorWorks) + 1];
+    strcpy(majorWorks, c.majorWorks);
     return *this;
 }
 
-Classic & Classic::operator= (const Cd & cd)
-{
-    cout << "This is Classic cd operator\n";
-    return *this;
-}
+// Classic & Classic::operator= (const Cd & cd)
+// {
+//     cout << "This is Classic cd operator\n";
+//     return *this;
+// }

@@ -7,17 +7,17 @@ class Cd
 {   // represents a CD disk
 public:
     Cd(const char * perf, const char * l, int sel, double pt);
-//    Cd(const Cd & cd);
+    Cd(const Cd & cd);
     Cd();
     virtual ~Cd();
 
     virtual void report() const;
-    virtual Cd & operator = (const Cd & cd);
+    /*virtual */Cd & operator = (const Cd & cd);
 
 protected:
 private:
-    char performers[50];
-    char label[20];
+    char * performers;
+    char * label;
     int selections;
     double playtime;
 };
@@ -29,17 +29,17 @@ public:
     Classic(const char * mw, const char * perf, 
         const char * l, int sel, double pt);
     Classic(const char * mw, const Cd & cd);
-//    Classic(const Classic & c);
+    Classic(const Classic & c);
     Classic();
-    virtual ~Classic();
+    ~Classic();
 
     virtual void report() const;
-    virtual Classic & operator = (const Cd & cd);
-    virtual Classic & operator = (const Classic & c);
+//    virtual Classic & operator = (const Cd & cd);
+    /*virtual*/ Classic & operator = (const Classic & c);
 
 protected:
 private:
-    char majorWorks[50];
+    char * majorWorks;
 };
 
 #endif /*__CD_H__*/
